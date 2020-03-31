@@ -1,0 +1,42 @@
+.led-outer-circle {
+  display: inline-block;
+  position: relative;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  background-color: #8799ac;
+  vertical-align: bottom;
+  margin-right: 5px;
+}
+
+.led-inner-circle-active {
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  margin: 20%;
+  border-radius: 50%;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #51df5a;
+  animation: blink 3s infinite;
+}
+
+.led-inner-circle-inactive {
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  margin: 20%;
+  border-radius: 50%;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #5e6b78;
+}
+
+@keyframes blink {
+  /* 50% { opacity: 0.9; } */
+  from {background-color: #5dfc4f;}
+  50% {background-color: #4ec256;}
+  to {background-color: #5dfc4f;
+    box-shadow: 0px 0px 15px 1px #82e769;
+  }
+}
