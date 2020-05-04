@@ -76,10 +76,16 @@ app.get('/containers/all', (req, res) => {
 // Stop container
 app.post('/containers/:id/stop', (req, res) => {
   const containerId = req.params.id;
-  console.log('server stop called')
+  // console.log(res);
   ax.post(`/containers/${containerId}/stop`, {})
-    .then(res => console.log('Container is successfully stopped.'))
-    .catch(err => console.log(err));
+    .then(res => console.log(res.status))
+    .catch(err => {
+      if (err.response.status === 304) {
+        res.json({"alreadyStopped": true})
+      } else {
+        console.log(err);
+      }
+    });
 });
 
 // Pull image

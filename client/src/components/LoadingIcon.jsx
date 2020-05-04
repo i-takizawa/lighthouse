@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class ContainersList extends Component {
-  render () {
-    return (<i class="fas fa-sync fa-spin"></i>)
-  }
-}
+const LoadingIcon = props => props.isLoading ? <i class="fas fa-sync fa-spin"></i> : null;
+
+export default LoadingIcon;
