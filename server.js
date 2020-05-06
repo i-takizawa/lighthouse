@@ -9,19 +9,20 @@ const axios = require('axios');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bodyParser = require('body-parser');
+const config = require('./config/keys');
 
 //
 // CONFIGURATIONS
 //
 
 // Port backend server listens on
-const port = process.env.LIGHTHOUSE_BACKEND_PORT || 5000;
+const port = config.LIGHTHOUSE_BACKEND_PORT || 5000;
 
 // Port docker daemon listens on
 // const dockerPort = process.env.DOCKER_API_PORT || 2376;
 
 // Docker socket
-const dockerSocket = '/var/run/docker.sock';
+const dockerSocket = config.DOCKER_SOCKET;
 
 // Instantiate axios
 const ax = axios.create({

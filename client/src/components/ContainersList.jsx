@@ -39,7 +39,7 @@ export default class ContainersList extends Component {
   });
 
   stopContainer = (id) => {
-    console.log('stopContainer function called. ID: ' + id);
+    console.log(`stopContainer function called. ID:  + ${id}`);
     axios.post(`http://localhost:${PORT}/containers/${id}/stop`)
       .then(res => {
         if (res.data.alreadyStopped) {
