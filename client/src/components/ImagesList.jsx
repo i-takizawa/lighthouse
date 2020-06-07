@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { Image, Table } from 'react-bootstrap';
 import DownloadImageBtn from './DownloadImageBtn';
+
+import addDataSizeUnit from '../utils/addUnits';
+
 import docker_logo from '../images/docker-logo-6D6F987702-seeklogo.com.png';
 import python_logo from '../images/python-logo-A32636CAA3-seeklogo.com.png';
 import redis_logo from '../images/redis-logo-E403D4DD6A-seeklogo.com.png';
@@ -30,8 +33,7 @@ const DockerImage = (props) => (
     <td>{props.image.Tag}</td>
     <td>{props.image.Id}</td>
     <td>{props.image.Created}</td>
-    {/* TODO: change unit based on image size */}
-    <td>{props.image.Size / 1000 } kB</td>
+    <td>{addDataSizeUnit(props.image.Size)}</td>
   </tr>
 )
 
@@ -84,7 +86,7 @@ export default class ImagesList extends React.Component {
 
   getThumbnail(repo) {
     
-    let imageMap = {
+    const imageMap = {
       'python': python_logo,
       'redis': redis_logo,
       'mariadb': mariadb_logo,
